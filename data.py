@@ -2,10 +2,7 @@ import pandas as pd
 
 
 def get_data(file):
-    if file.endswith(".xlsx"):
-        data = pd.read_excel(file)
-    elif file.endswith(".csv"):
-        data = pd.read_csv(file)
+    data = pd.read_excel(file)
     data2 = data[["Type", "Status"]]
     dic = data2.groupby(["Type"]).value_counts()
     monthly_active = dic["MONTHLY"]["active"]
